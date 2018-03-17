@@ -17,5 +17,6 @@ install:
 
 build_script:
   - npm run dist
+  - npm run pack-depl
 
 test: off
