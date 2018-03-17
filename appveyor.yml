@@ -13,7 +13,7 @@ init:
 
 install:
   - ps: Install-Product node 8 x64
-  - runas /profile /user:Administrator "npm install"
+  - npm install
 
 build_script:
   - npm dist
