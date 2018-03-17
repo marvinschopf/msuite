@@ -8,12 +8,14 @@
     "start": "electron .",
     "build-win32": "electron-packager --platform=win32 . --overwrite",
     "package-all": "electron-packager . --overwrite",
+    "pack-depl": "electron-builder",
     "dist": "npm run package-all"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "electron": "^1.8.4",
+    "electron-builder": "^20.5.1",
     "electron-packager": "^11.1.0",
     "nfc-pcsc": "^0.6.1",
     "nfccard-tool": "^0.1.0",
