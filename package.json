@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "package-all": "electron-packager ."
+    "package-all": "electron-packager .",
+    "dist": "npm run package-all"
   },
   "author": "",
   "license": "ISC",
