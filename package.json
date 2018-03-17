@@ -1,0 +1,20 @@
+{
+  "name": "marvnet-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "package-all": "electron-packager ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.8.4",
+    "electron-packager": "^11.1.0",
+    "nfc-pcsc": "^0.6.1",
+    "nfccard-tool": "^0.1.0",
+    "smartcard": "^1.0.22"
+  }
+}
