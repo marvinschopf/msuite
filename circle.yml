@@ -1,3 +1,5 @@
+
+
 machine:
   xcode:
     version: 7.3
@@ -11,7 +13,6 @@ dependencies:
 
   pre:
     - brew update
-    # install libpcslite
     - brew install libpcslite-dev
     # uninstall Node 6 which is shipped by default on Circle
     - brew uninstall node
@@ -23,18 +24,19 @@ dependencies:
     - curl -o- -L https://yarnpkg.com/install.sh | TERM=xterm bash
 
   override:
-    - npm install --force
+    - yarn install --force
 
-jobs:
-  build:
-    - npm run dist
-    - npm run pack-depl
 compile:
   override:
-    - npm run dist
-    - npm run pack-depl
+    - yarn run dist
 
+test:
+  override:
+    - yarn test:setup
+    - yarn test
 
-
-
-  
+deployment:
+  production:
+    branch: /^__release-.*/
+    commands:
+      - yarn run pack-depl
