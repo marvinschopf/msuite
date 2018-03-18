@@ -1,0 +1,27 @@
+
+
+machine:
+  xcode:
+    version: 7.3
+
+dependencies:
+  cache_directories:
+    - ".eslintcache"
+    - "node_modules"
+    - "~/.electron"
+    - "~/Library/Caches/Yarn/v1"
+
+  pre:
+    - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+    - sudo apt-get install -y nodejs
+    - sudo apt-get install libpcsclite-dev
+    # workaround for yarn installation issue
+    - curl -o- -L https://yarnpkg.com/install.sh | TERM=xterm bash
+
+  override:
+    - npm install
+
+compile:
+  override:
+    - npm run dist
+    - npm run pack-depl

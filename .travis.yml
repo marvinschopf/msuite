@@ -1,0 +1,11 @@
+os: osx
+osx_image: xcode9.3beta
+
+before_install:
+  - brew upgrade node
+  - brew install yarn
+
+script:
+  - yarn install
+  - yarn run dist
+  - yarn run pack-depl
