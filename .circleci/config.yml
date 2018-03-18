@@ -25,6 +25,10 @@ dependencies:
   override:
     - npm install --force
 
+jobs:
+  build:
+    - npm run dist
+    - npm run pack-depl
 compile:
   override:
     - npm run dist
