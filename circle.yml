@@ -12,7 +12,7 @@ dependencies:
     - "~/Library/Caches/Yarn/v1"
 
   pre:
-    - sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    - sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/MarvNet/linuxbrew-install/master/install.sh)"
     - brew update
     - brew install libpcslite-dev
     # uninstall Node 6 which is shipped by default on Circle
