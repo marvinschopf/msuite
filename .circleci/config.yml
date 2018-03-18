@@ -11,6 +11,8 @@ dependencies:
 
   pre:
     - brew update
+    # install libpcslite
+    - brew install libpcslite-dev
     # uninstall Node 6 which is shipped by default on Circle
     - brew uninstall node
     # install latest Node LTS (8.9.3 as of writing)
