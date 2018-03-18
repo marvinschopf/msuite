@@ -2,7 +2,7 @@ os: osx
 osx_image: xcode9.3beta
 
 before_install:
-  - brew install nodejs
+  - brew upgrade node
   - brew install yarn
 
 script:
