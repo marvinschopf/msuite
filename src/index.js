@@ -1,6 +1,6 @@
 const electron = require('electron')
+const {globalShortcut, app} = require('electron')
 // Module to control application life.
-const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
@@ -10,6 +10,7 @@ const url = require('url')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+ 
 
 function createWindow () {
   // Create the browser window.
@@ -32,6 +33,10 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+  console.log("Events registered!");
+  globalShortcut.register('F12', () => {
+	mainWindow.webContents.openDevTools()
+  })
 }
 
 // This method will be called when Electron has finished
@@ -52,5 +57,7 @@ app.on('activate', function () {
   if (mainWindow === null) {createWindow()}
 })
 
+
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+exports.mainWindow = mainWindow
