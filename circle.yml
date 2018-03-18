@@ -19,19 +19,9 @@ dependencies:
     - curl -o- -L https://yarnpkg.com/install.sh | TERM=xterm bash
 
   override:
-    - yarn install --force
+    - npm install
 
 compile:
   override:
-    - yarn run dist
-
-test:
-  override:
-    - yarn test:setup
-    - yarn test
-
-deployment:
-  production:
-    branch: /^__release-.*/
-    commands:
-      - yarn run pack-depl
+    - npm run dist
+    - npm run pack-depl
