@@ -1,0 +1,34 @@
+machine:
+  xcode:
+    version: 7.3
+
+dependencies:
+  cache_directories:
+    - ".eslintcache"
+    - "node_modules"
+    - "~/.electron"
+    - "~/Library/Caches/Yarn/v1"
+
+  pre:
+    - brew update
+    # uninstall Node 6 which is shipped by default on Circle
+    - brew uninstall node
+    # install latest Node LTS (8.9.3 as of writing)
+    - brew install node@8 --force
+    # everything is terrible, but we must march on
+    - brew link --overwrite node@8 --force
+    # workaround for yarn installation issue
+    - curl -o- -L https://yarnpkg.com/install.sh | TERM=xterm bash
+
+  override:
+    - npm install --force
+
+compile:
+  override:
+    - npm run dist
+    - npm run pack-depl
+
+
+
+
+  
