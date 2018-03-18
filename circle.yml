@@ -14,7 +14,7 @@ dependencies:
   pre:
     - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
     - sudo apt-get install -y nodejs
-    - sudo apt-get install libpcslite-dev
+    - sudo apt-get install libpcslite
     - sudo apt-get install npm
     # workaround for yarn installation issue
     - curl -o- -L https://yarnpkg.com/install.sh | TERM=xterm bash
