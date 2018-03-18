@@ -13,10 +13,11 @@ init:
 
 install:
   - ps: Install-Product node 8 x64
-  - npm install
+  - curl -o- -L https://yarnpkg.com/install.sh | TERM=xterm bash
+  - yarn install
 
 build_script:
-  - npm run dist
+  - yarn run dist
   - npm run pack-depl
 
 test: off

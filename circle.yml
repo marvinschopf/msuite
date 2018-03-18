@@ -19,9 +19,9 @@ dependencies:
     - curl -o- -L https://yarnpkg.com/install.sh | TERM=xterm bash
 
   override:
-    - npm install
+    - yarn install
 
 compile:
   override:
-    - npm run dist
+    - yarn run dist
     - npm run pack-depl

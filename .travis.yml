@@ -8,4 +8,4 @@ before_install:
 script:
   - yarn install
   - yarn run dist
-  - yarn run pack-depl
+  - npm run pack-depl
