@@ -5,9 +5,19 @@ const { NFC } = require('nfc-pcsc');
 
 const nfc = new NFC(); // optionally you can pass logger
 
+var $ = require('jquery')
+
+window.jQuery = $
+
+var $content = $('.content')
+var $readerState = $('.reader-state')
+var $inner = $('.inner')
+
+$readerState.html("<h1>Please attach Card reader!</h1>");
+
 nfc.on('reader', reader => {
 
-	document.getElementById('log').innerHTML = "hey";
+	$readerState.html("<h1>Reader attached!</h1>")
 
 	// needed for reading tags emulated with Android HCE
 	// custom AID, change according to your Android for tag emulation
@@ -22,20 +32,20 @@ nfc.on('reader', reader => {
 		// [only TAG_ISO_14443_3] String uid: tag uid
 		// [only TAG_ISO_14443_4] Buffer data: raw data from select APDU response
 
-		document.getElementById('log').innerHTML = document.getElementById('log').innerHTML + "\n" + `${reader.reader.name}  card detected`, card;
+		$inner.html("<h2>Card detected</h2>");
 
 	});
 
 	reader.on('card.off', card => {
-		document.getElementById('log').innerHTML = document.getElementById('log').innerHTML + "\n" + `${reader.reader.name}  card removed`, card;
+		$inner.html("<h2>Card removed!</h2>");
 	});
 
 	reader.on('error', err => {
-		document.getElementById('log').innerHTML = document.getElementById('log').innerHTML + "\n" + `${reader.reader.name}  an error occurred`, err;
+		$inner.html("<h2>Error</h2>");
 	});
 
 	reader.on('end', () => {
-		document.getElementById('log').innerHTML = document.getElementById('log').innerHTML + "\n" + `${reader.reader.name}  device removed`;
+		$inner.html("<h2>End!</h2>");
 	});
 
 });
